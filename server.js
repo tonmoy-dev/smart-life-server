@@ -1,10 +1,9 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const cors = require('cors');
-const connectDb = require('./config/db.js');
-require('dotenv').config();
-const { MongoClient } = require('mongodb');
-const ObjectId = require('mongodb').ObjectId;
+const cors = require("cors");
+const connectDb = require("./config/db.js");
+require("dotenv").config();
+const productRoutes = require("./routes/productRoutes");
 const port = process.env.PORT || 5000;
 
 // connect database
@@ -12,13 +11,16 @@ connectDb();
 
 // middleware
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
+// connect routers
+app.use("/api/products", productRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Smart Tech Shop!!')
-})
+app.get("/", (req, res) => {
+  res.send("Smart Life!!");
+});
 
 app.listen(port, () => {
-    console.log(`Example app listening at ${port}`);
-})
+  console.log(`Example app listening at ${port}`);
+});
