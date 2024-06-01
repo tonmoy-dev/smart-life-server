@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const connectDb = require("../config/db.js");
+const connectDb = require("./config/db.js");
 require("dotenv").config();
-const productRoutes = require("../routes/productRoutes.js");
+const productRoutes = require("./routes/productRoutes.js");
 const port = process.env.PORT || 5000;
 
 // connect database
