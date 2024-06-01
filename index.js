@@ -1,13 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const corsConfig = {
-  origin: "*",
-  credential: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-};
-app.options("", cors(corsConfig));
-app.use(cors(corsConfig));
 const connectDb = require("./config/db.js");
 require("dotenv").config();
 const productRoutes = require("./routes/productRoutes.js");
