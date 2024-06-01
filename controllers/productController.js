@@ -3,7 +3,7 @@ const Product = require("../models/ProductModel");
 
 const getProducts = asyncHandler(async (req, res, next) => {
   // find all Products
-  const products = await Product.find({}).toArray();
+  const products = await Product.find({});
   res.status(200).json(products);
 });
 
